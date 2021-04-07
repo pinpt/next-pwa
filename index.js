@@ -179,7 +179,7 @@ module.exports = (nextConfig = {}) => ({
       const prefix = config.output.publicPath ? `${config.output.publicPath}static/` : 'static/'
       const workboxCommon = {
         swDest: path.join(_dest, sw),
-        additionalManifestEntries: dev ? [] : manifestEntries,
+        additionalManifestEntries:  manifestEntries ?? [],
         exclude: [
           ({ asset, compilation }) => {
             if (asset.name.match(/^(build-manifest\.json|react-loadable-manifest\.json)$/)) {
@@ -228,7 +228,7 @@ module.exports = (nextConfig = {}) => ({
           })
         )
       } else {
-        if (dev) {
+        /*if (dev) {
           console.log(
             '> [PWA] Build in develop mode, cache and precache are mostly disabled. This means offline support is disabled, but you can continue developing other functions in service worker.'
           )
@@ -260,7 +260,7 @@ module.exports = (nextConfig = {}) => ({
               }]
             }
           })
-        }
+        } */
 
         if (fallbacks) {
           runtimeCaching.forEach(c => {
