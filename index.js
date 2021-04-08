@@ -228,7 +228,7 @@ module.exports = (nextConfig = {}) => ({
           })
         )
       } else {
-        /*if (dev) {
+        if (dev && false) {
           console.log(
             '> [PWA] Build in develop mode, cache and precache are mostly disabled. This means offline support is disabled, but you can continue developing other functions in service worker.'
           )
@@ -260,7 +260,7 @@ module.exports = (nextConfig = {}) => ({
               }]
             }
           })
-        } */
+        }
 
         if (fallbacks) {
           runtimeCaching.forEach(c => {
